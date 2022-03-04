@@ -1,0 +1,134 @@
+.nav-item.buy.active {
+  border-radius: 0 !important;
+  border-bottom: 0 !important;
+  box-sizing: border-box;
+}
+nav .nav-item.buy.active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: red !important;
+}
+nav .nav-item.active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: green !important;
+}
+
+nav .nav-item.active {
+  border-radius: 0 !important;
+  border-bottom: 0 !important;
+  /* border-top: 3px solid green !important; */
+  box-sizing: border-box;
+}
+.nav-item {
+  cursor: pointer;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 0 !important;
+  border: 0 !important;
+  /* border-top: 3px solid #cccccc44; */
+}
+
+.orders::-webkit-scrollbar {
+  width: 6px;
+  background-color: #161a1e;
+}
+.orders::-webkit-scrollbar-thumb {
+  background-color: #5c5f7d;
+}
+.orders::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgb(56 53 53 / 30%);
+  background-color: #2e2a4d;
+}
+.order-book-container,
+.p2p-order-book__table {
+  display: flex;
+  position: relative;
+}
+.order-book-table--open,
+.order-book-table--open thead tr th {
+  width: 50%;
+}
+.order-book-table {
+  /* background-color: rgb(255, 255, 255); */
+  margin-bottom: 0px;
+  border-collapse: collapse;
+  width: 100%;
+  position: relative;
+  table-layout: fixed;
+  border-spacing: 0px;
+}
+.order-book-table thead tr {
+  /* height: 20px; */
+  height: 0px !important;
+  border: none;
+  border-top: 0.1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 0.1px solid rgba(0, 0, 0, 0.1);
+}
+
+.order-book-table thead tr th {
+  border-bottom: 0.1px solid rgb(0, 0, 0,0.1);
+}
+.order-book-table thead tr th > h6 {
+  height: 14px;
+  color: rgb(51 50 55);
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.2;
+  white-space: pre-line;
+  vertical-align: middle;
+  padding: 4px 14px;
+}
+
+.order-book-table tbody tr {
+  height: 30px;
+  cursor: pointer;
+}
+.order-book-table tbody.buy tr td {
+  text-align: right;
+}
+.order-book-table tbody tr td.status-dot-cell {
+  text-align: center !important;
+  padding: 0px;
+}
+.order-book-table tbody tr td {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.33;
+  letter-spacing: 0.4px;
+  max-width: 0px;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  white-space: nowrap;
+  padding: 2px 14px;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  overflow: hidden;
+}
+.order-book-table tbody tr .filler {
+  position: absolute;
+  height: 30px;
+}
+.order-book-table tbody.buy tr .filler {
+  right: 0px;
+  left: auto;
+  background: rgba(35, 172, 80, 0.2);
+}
+.order-book-table--right {
+  right: 0px;
+}
+.order-book-table tbody.sell tr .filler {
+  left: 0px;
+  right: auto;
+  background: rgba(241, 67, 47, 0.2);
+}

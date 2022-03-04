@@ -1,0 +1,4 @@
+.wrap-1{
+    background-color: rgba(0,0,0,0.7);position: fixed; width: 100%; z-index: 99; top:0;  height: 10vh !important; display: flex;
+}
+.sign{background-color: #FB4E4E; color:#fff !important}

@@ -1,0 +1,41 @@
+.order_cont {
+  display: flex;
+  flex-direction: column;
+  padding: 1px 0px;
+  position: relative;
+  z-index: 1;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  border-bottom: 1px solid rgba(151, 151, 151, 0.18);
+  flex-shrink: 0;
+}
+.orderrow-hover {
+  display: flex;
+  flex-shrink: 0;
+  height: 100%;
+  width: 85%;
+  opacity: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to right,
+    rgba(245, 248, 250, 0) 0%,
+    rgba(65, 63, 94, 0.9) 10%
+  );
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  transition: all 0.2s ease 0s;
+  -webkit-box-pack: end;
+  justify-content: space-evenly;
+  -webkit-box-align: center;
+  align-items: center;
+  color: rgb(155, 155, 155);
+  cursor: default;
+  font-weight: 600 !important;
+}
+
+.order:hover .orderrow-hover {
+  right: 0px;
+  opacity: 1;
+  z-index: 2;
+}

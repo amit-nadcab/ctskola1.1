@@ -1,0 +1,286 @@
+.wrap-1 {
+  /*  background-color: rgba(0,0,0,0.7); */
+  background-color: #141a28;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  top: 0;
+  height: 10vh !important;
+  display: flex;
+}
+.navbar-brand {
+  background-color: #04da9a;
+  padding: 5px 5px;
+  border-radius: 5px;
+}
+.sign {
+  background-color: #fb4e4e;
+  color: #fff !important;
+}
+.img-logo {
+  width: 180px;
+}
+.banner {
+  /*  background-image: url("../img/back.jpg"); */
+  /*  background-size: cover;
+   background-position: center; */
+  min-height: 90vh;
+  background-color: #141a28;
+  /* background-image: url("../img/Pro-Max.png"); */
+}
+.trade_icons {
+  height: 50px;
+  width: 100px;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mactive {
+  padding: 5px 15px !important;
+  border-radius: 5px !important;
+  margin: 10px 10px;
+}
+
+.nmactive {
+  padding: 5px 15px !important;
+  border-radius: 5px !important;
+  background-color: #f9fcff !important;
+  color: rgb(82, 120, 224) !important;
+  margin: 10px 10px;
+}
+.wrap-2 {
+  width: 100%;
+  background-color: #141a28;
+}
+
+.bannertxt {
+  font-size: 48px;
+  white-space: nowrap;
+}
+.bannerImg {
+  height: 80vh !important;
+  padding-top: 60px;
+}
+.bannerBtn {
+  background-color: #09be8b;
+  line-height: 30px;
+  padding: 0 20px;
+  border-radius: 5px;
+}
+.bannerBtn:hover {
+  background-color: red;
+}
+
+.img-1 {
+  background-color: #1e2738;
+  width: 200px;
+  bottom: 130px;
+  left: -14px;
+}
+.img-2 {
+  background-color: #1e2738;
+  top: 248px;
+  left: -60px;
+  width: 200px;
+}
+.img-3 {
+  background-color: #1e2738;
+  width: 200px;
+  top: 183px;
+  right: -34px;
+}
+
+.tradingBtn {
+  background-color: #04da9a;
+  padding: 12px 40px;
+  color: white;
+  border-radius: 3px;
+  font-weight: 600;
+}
+.tradingBtn:hover {
+  background-color: red;
+  color: #fff;
+}
+.footer-logo {
+  background-color: #09be8b;
+  padding: 15px 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.footer-logo:hover {
+  opacity: 0.9;
+}
+.social-link:hover {
+  opacity: 0.7;
+}
+
+.wrap-about {
+  min-height: 100vh;
+  background-color: #141a28;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-top {
+  color: #09be8b;
+  font-size: 20px;
+}
+.about-head {
+  font-size: 50px;
+  font-weight: 400;
+}
+.about-paraOne {
+  font-size: 18px;
+  text-align: justify;
+}
+.about-paraTwo{
+  font-size: 18px;
+  font-weight: 600;
+  text-align: justify;
+}
+
+/* -------------------460-------------- */
+@media (max-width: 460px) {
+  .trading-container {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+  }
+  .tradingBtn {
+    margin: 10px 0;
+  }
+}
+
+/* -------------------600-------------- */
+@media (max-width: 600px) {
+  .gifimg {
+    width: 100%;
+    /* background-color: ; */
+  }
+  .bannertxt {
+    white-space: normal !important;
+    font-size: 35px;
+  }
+
+  /* .banner {
+      background-size: contain;
+     background-position: top;
+     height: 300px;
+     background-repeat: no-repeat; 
+     
+   } */
+  .bannerLeft {
+    margin: 50px 0 !important;
+  }
+  .bannerRight {
+    position: relative;
+  }
+  .bannerRight img {
+    height: 400px !important;
+  }
+  .mysocial {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .img-1 {
+    left: 13px !important;
+    top: -25px;
+    width: 100px !important;
+  }
+  .img-2 {
+    left: 50px !important;
+    width: 150px !important;
+  }
+  .img-3 {
+    width: 150px !important;
+    right: 24px !important;
+  }
+}
+/* -------------------768-------------- */
+
+@media (max-width: 768px) {
+  .bannerLeft {
+    margin-top: 100px !important;
+  }
+  .bannerRight img {
+    height: 400px !important;
+    padding: 10px;
+  }
+  .card {
+    margin-left: 0px !important;
+  }
+  .img-1 {
+    display: block !important;
+    width: 200px !important;
+    height: 100px;
+    bottom: 300px;
+    left: -25px;
+  }
+  .img-2 {
+    display: block !important;
+    height: 100px;
+    top: 300px;
+    left: -25px;
+    width: 200px;
+  }
+  .img-3 {
+    display: block !important;
+    width: 200px;
+    height: 150px;
+    top: 100px;
+    right: -20px;
+  }
+  .about-img {
+    margin-top: 50px;
+  }
+  .about-top {
+    padding: 30px 0 0 0;
+  }
+
+}
+/* -------------------992-------------- */
+@media (max-width: 992px) {
+  .bannertxt {
+    font-size: 30px;
+  }
+  .bannerRight img {
+    height: 500px !important;
+  }
+  .img-1 {
+    display: none;
+  }
+  .img-2 {
+    display: none;
+  }
+  .img-3 {
+    display: none;
+  }
+}
+
+
+.wrap-privacy{
+  background-color: #141a28;
+  padding-top: 100px;
+}
+
+.wrap-privacy li{
+  list-style-type: lower-alpha !important;
+}
+
+.data1 li{
+  list-style-type: decimal !important;
+}
+
+.wrap-privacy p{
+  color: #CDCFD4;
+}
+
+.point-color{
+  color: #09be8b;
+}

@@ -1,0 +1,30 @@
+<svg width="320" height="305" viewBox="0 0 320 305" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Group</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-1520 -441)">
+<g id="Group">
+<g id="Ellipse" opacity="0.05">
+<use xlink:href="#path0_fill" transform="translate(1409 441)" fill="#FFFFFF"/>
+</g>
+<g id="Ellipse" opacity="0.05">
+<use xlink:href="#path1_fill" transform="translate(1453.75 485.734)" fill="#FFFFFF"/>
+</g>
+<g id="Ellipse" opacity="0.05">
+<use xlink:href="#path2_fill" transform="translate(1497.05 529.026)" fill="#FFFFFF"/>
+</g>
+<g id="Ellipse" opacity="0.05">
+<use xlink:href="#path3_fill" transform="translate(1537.47 569.431)" fill="#FFFFFF"/>
+</g>
+<g id="Ellipse" opacity="0.05">
+<use xlink:href="#path4_fill" transform="translate(1583.66 615.608)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 542.747 271.292C 542.747 421.123 421.249 542.584 271.374 542.584C 121.498 542.584 0 421.123 0 271.292C 0 121.462 121.498 0 271.374 0C 421.249 0 542.747 121.462 542.747 271.292Z"/>
+<path id="path1_fill" d="M 453.252 226.558C 453.252 351.682 351.788 453.116 226.626 453.116C 101.464 453.116 0 351.682 0 226.558C 0 101.433 101.464 0 226.626 0C 351.788 0 453.252 101.433 453.252 226.558Z"/>
+<path id="path2_fill" d="M 366.643 183.267C 366.643 284.482 284.567 366.533 183.321 366.533C 82.0758 366.533 0 284.482 0 183.267C 0 82.0512 82.0758 0 183.321 0C 284.567 0 366.643 82.0512 366.643 183.267Z"/>
+<path id="path3_fill" d="M 285.808 142.861C 285.808 221.761 221.828 285.723 142.904 285.723C 63.9804 285.723 0 221.761 0 142.861C 0 63.9612 63.9804 0 142.904 0C 221.828 0 285.808 63.9612 285.808 142.861Z"/>
+<path id="path4_fill" d="M 193.426 96.6839C 193.426 150.081 150.126 193.368 96.7129 193.368C 43.2998 193.368 0 150.081 0 96.6839C 0 43.2869 43.2998 0 96.7129 0C 150.126 0 193.426 43.2869 193.426 96.6839Z"/>
+</defs>
+</svg>

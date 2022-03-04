@@ -1,0 +1,31 @@
+.solutions {
+    visibility: visible; 
+    animation-delay: 0.2s; 
+    animation-name: fadeInUp;
+}
+
+.abt {
+    visibility: visible; 
+    animation-name: fadeInDownBig; 
+    animation-delay: 200ms; 
+    animation-duration: 1000ms;
+}
+
+.firb {
+    visibility: visible; 
+    animation-name: fadeInRightBig; 
+    animation-delay: 200ms; 
+    animation-duration: 1000ms;
+}
+
+.fund-sec {
+    visibility: visible; 
+    animation-delay: 0.2s; 
+ 
+    animation-name: fadeInUp;
+}
+
+.pp {
+    text-align:"justify"; 
+    padding:"20px;"
+}

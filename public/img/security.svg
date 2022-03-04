@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+    <g fill="none" fill-rule="evenodd">
+        <rect width="44" height="44" fill="#3ABEF9" opacity=".1" rx="4"/>
+        <g stroke="#3ABEF9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M22 33c-8.885-3.232-8.989-13-8.989-13-.006-.55-.011-1.45-.011-2v-3c0-.55.45-1 1-1h1M15 14c4.812 0 6.977-3 6.977-3M22 33c8.885-3.232 8.989-13 8.989-13 .006-.55.011-1.45.011-2v-3c0-.55-.45-1-1-1h-1M29 14c-4.812 0-6.977-3-6.977-3M22 22.5v-4M22 26.5V26"/>
+        </g>
+    </g>
+</svg>

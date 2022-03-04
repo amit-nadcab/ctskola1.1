@@ -1,0 +1,75 @@
+.itdesign{
+    font-size: 10px; 
+    /* background-color: #162538a6!important; */
+    /* color: #fff;  */
+    border-color: rgba(0,0,0,0.1)!important;
+    /* border-right: none;     */
+}
+.inpdesign,.inpdesign:focus{
+    background-color: white !important;
+    color: rgba(0,0,0,0.5) !important;
+    border-color: rgba(0,0,0,0.1) !important;
+}
+
+.usdt_design1{
+    border-radius: 4px;
+}
+.usdt_design2{
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 67%;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px;
+    float: left;
+    display: flex;
+    border-radius: 4px;
+    z-index: 1;
+}
+.usdt_design3{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px;
+}
+.dtue4{
+    display: block;
+    line-height: 1.67;
+    letter-spacing: 0.4px;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+.dtue2{
+    position: relative;
+    text-align: center;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin: 14px 0px;
+    flex-shrink: 0;
+    width: 100%;
+}
+.dtue3{
+    display: block;
+    color: rgb(146, 152, 155);
+    line-height: 1.67;
+    letter-spacing: 0.4px;
+    padding: 8px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 12px;
+}
+.dtue00{
+    padding: 8px 20px;
+    width: 100%;
+    max-height: 94px;
+    background-color: #fff;
+}
