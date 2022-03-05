@@ -1,10 +1,13 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Header from './Header'
 import Footer from './Footer'
 
 
 
 export default function Privacy() {
+    useEffect(() => {
+        document.title = "CTSKOLA Privacy policy"
+    }, [])
 
     return (
         <>

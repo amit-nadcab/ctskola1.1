@@ -74,8 +74,8 @@ export default function Footer() {
               </p>
 
               <p>
-                <a style={{ fontWeight: "400", color: "#CDCFD4" }}>
-                  Career
+                <a style={{ fontWeight: "400", color: "#CDCFD4" }} href="/downloads">
+                  Downloads
                 </a>
               </p>
 
@@ -85,7 +85,7 @@ export default function Footer() {
                 </a>
               </p>
               <p>
-                <a style={{ fontWeight: "400", color: "#CDCFD4" }}>
+                <a style={{ fontWeight: "400", color: "#CDCFD4" }} href="/community">
                   Community
                 </a>
               </p>
@@ -97,7 +97,7 @@ export default function Footer() {
               </p>
               <p>
                 <a
-                  href="#"
+                  href=""
 
                   style={{ fontWeight: "400", color: "#CDCFD4" }}
                 >

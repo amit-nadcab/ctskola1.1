@@ -64,6 +64,7 @@ import EditProfile from "./EditProfile";
 //privacy
 import Privacy from "./HomeComp/Privacy";
 import TermsConditions from "./HomeComp/Terms&Conditions";
+import Downloads from "./HomeComp/Downloads";
 
 export default function Router(props) {
   const dispatch = useDispatch();
@@ -235,6 +236,7 @@ export default function Router(props) {
       <Route path="/community" component={Community} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms_&_conditions" component={TermsConditions} />
+      <Route path="/downloads" component={Downloads} />
     </Switch>
   );
 }

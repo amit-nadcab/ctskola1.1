@@ -284,3 +284,25 @@
 .point-color{
   color: #09be8b;
 }
+
+.wrap-downloads{
+  background-color: #141A28;
+}
+
+.downloads-img1{
+  height: 400px;
+
+}
+
+.download-button{
+  display: inline-block;
+  margin: 5px;
+  width: 230px;
+  background-color: #04DA9A;
+  text-align: left;
+}
+
+.wrap-downloads p{
+  color: #94979F;
+  font-size: 20px;
+}
