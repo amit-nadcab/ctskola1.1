@@ -34,7 +34,7 @@ export default function Downloads() {
                     </div>
                     <div className="col-md-6 col-12 d-flex justify-content-center align-items-center">
 
-                        <img src="../img/phone-1.png" alt="" className='downloads-img1' />
+                        <img src="../img/Ctskola_mobile.png" alt="" className='downloads-img1' />
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@ export default function Downloads() {
 
                     <div className="col-md-6 col-12 d-flex justify-content-center align-items-center">
 
-                        <img src="../img/download-img-2.png" alt="" className='downloads-img1' />
+                        <img src="../img/ctskola_black.png" alt="" className='downloads-img1' />
                     </div>
                     <div className="col-md-6 col-12 py-5 text-light">
 
@@ -79,7 +79,7 @@ export default function Downloads() {
                     </div>
                     <div className="col-md-6 col-12 d-flex justify-content-center align-items-center">
 
-                        <img src="../img/download-img-3.png" alt="" className='downloads-img1' />
+                        <img src="../img/ctskola_laptop.png" alt="" className='downloads-img1' />
                     </div>
                 </div>
 
@@ -87,7 +87,7 @@ export default function Downloads() {
 
                     <div className="col-md-6 col-12 d-flex justify-content-center align-items-center">
 
-                        <img src="../img/download-img-2.png" alt="" className='downloads-img1' />
+                        <img src="../img/Ctskola_mobile.png" alt="" className='downloads-img1' />
                     </div>
                     <div className="col-md-6 col-12 py-5 text-light">
 
