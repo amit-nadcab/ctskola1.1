@@ -12,6 +12,7 @@ export default function Downloads() {
     useEffect(() => {
         document.title = "Downloads"
     }, [])
+
     return (
         <>
             <Header />
@@ -22,13 +23,10 @@ export default function Downloads() {
                         <h2>Trade. Anywhere.</h2>
                         <p>All the power of CTSKOLA's cryptocurrency exchange, in the palm of your hand. Download the CTSKOLA mobile crypto trading app today</p>
                         <div>
-                            <button type="button" className="btn btn-lg download-button p-2"><BsApple />  Download from App Store</button>
+                            <button type="button" className="btn btn-lg download-button p-2 disabled"><BsApple />  Download from App Store</button>
                         </div>
                         <div>
-                            <button type="button" className="btn btn-lg download-button p-2"><DiAndroid />  Download for Android</button>
-                        </div>
-                        <div>
-                            <button type="button" className="btn btn-lg download-button p-2"><FaGooglePlay />  Download from Google play</button>
+                            <button type="button" className="btn btn-lg download-button p-2 disabled"><DiAndroid />  Download for Android</button>
                         </div>
 
                     </div>
@@ -38,7 +36,7 @@ export default function Downloads() {
                     </div>
                 </div>
 
-                <div className='row container py-5 mx-auto'>
+                {/* <div className='row container py-5 mx-auto'>
 
                     <div className="col-md-6 col-12 d-flex justify-content-center align-items-center">
 
@@ -59,7 +57,7 @@ export default function Downloads() {
                         </div>
 
                     </div>
-                </div>
+                </div> */}
 
                 <div className='row container py-5 mx-auto'>
                     <div className="col-md-6 col-12 py-5 text-light">
@@ -87,18 +85,19 @@ export default function Downloads() {
 
                     <div className="col-md-6 col-12 d-flex justify-content-center align-items-center">
 
-                        <img src="../img/Ctskola_mobile.png" alt="" className='downloads-img1' />
+                        {/* <img src="../img/Ctskola_mobile.png" alt="" className='downloads-img1' /> */}
+                        <img src="../img/ctskola_laptop.png" alt="" className='downloads-img1' />
                     </div>
                     <div className="col-md-6 col-12 py-5 text-light">
 
                         <h2>CTSKOLA Authenticator</h2>
                         <p>CTSKOLA authenticator generates 2-Step verification codes. Increase your account safety by downloading the CTSKOLA authenticator for a second step of verification.</p>
-                        <div>
+                        {/* <div>
                             <button type="button" className="btn btn-lg download-button p-2"><BsApple />  Download for iPhone</button>
                         </div>
                         <div>
                             <button type="button" className="btn btn-lg download-button p-2"><DiWindows />  Download for android</button>
-                        </div>
+                        </div> */}
                         
                     </div>
                 </div>

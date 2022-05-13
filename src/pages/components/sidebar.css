@@ -44,7 +44,7 @@
 #vertical_tab_nav li a.active{
    background: #252930;
    color: #fff;
-   border-left: 1px solid #ff9407;
+   border-left:1px solid #04DA9A;
 }
 
 #vertical_tab_nav > div{float: left;background: #2e2a4d;width:805px;min-height: auto;padding: 10px 3% 3% 3%;border-radius: 0;margin: 0 15px;}

@@ -32,7 +32,7 @@ export default function Footer(props) {
                 </div>
                 {/* <!-- Social Icon --> */}
                 <div
-                  className="footer-social-info fadeInUp"
+                  className="footer-social-info fadeInUp d-flex"
                   data-wow-delay="0.4s"
                 >
                   <div className="mr-2">

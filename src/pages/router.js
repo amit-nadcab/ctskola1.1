@@ -91,9 +91,7 @@ export default function Router(props) {
         order_book_loading: false,
       });
     });
-    // socket.on("welcome", (msg) => {
-    //   console.log("Welcome message", msg);
-    // });
+
     socket.on("sell_order_updated", (res) => {
       // console.log("sell_order_updated: ", res);
       dispatch({
@@ -106,13 +104,7 @@ export default function Router(props) {
       // console.log("order_history_updated", res);
       dispatch({ type: SET_TRADE_HISTORY, data: res, trade_loading: false });
     });
-    // socket.on("connect", () => {
-    //   console.log("connected!");
-    // });
-    // socket.on("error", (eror) => {
-    //   console.log("eror", eror);
-    // });
-    // dispatch(getData());
+
     dispatch(getWebsite());
     // dispatch(getOrderBook("btc","inr",()=>{}))
     if (isLoggedIn && token) dispatch(getUserBalance(token));

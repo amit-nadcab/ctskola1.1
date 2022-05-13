@@ -75,12 +75,12 @@ export default function MarketTrend() {
           <div className="row d-flex align-center justify-content-center">
             <div className="col-lg-4 col-md-6 col-12 d-flex justify-content-center" data-aos="zoom-in-up">
               <Card title="Real-Time Price"
-                content="Find the crypto data you need  whether you’re looking to trade on a new to the exchange, invest in a fresh currency."
+                content="Get latest crypto prices, interactive charts, and technical analysis for digital currencies."
                 comp={<FcSalesPerformance style={{ fontSize: "3rem", color: "#CB9615" }} className="m-3" />} />
             </div>
             <div className="col-lg-4 col-md-6 col-12 d-flex justify-content-center" data-aos="zoom-in-up">
               <Card title="Comparisons"
-                content="Find the crypto data you need  whether you’re looking to trade on a new to the exchange, invest in a fresh currency."
+                content="Compare performance of your cryptocurrencies with Coinread. Graphs, market cap, price, circulating supply, max supply."
                 comp={<BiGitCompare style={{ fontSize: "3rem", color: "#CB9615" }} className="m-3" />} />
             </div>
             <div className="col-lg-4 col-md-6 col-12 d-flex justify-content-center" data-aos="zoom-in-up">

@@ -33,13 +33,13 @@ export default function Header(props) {
         <nav
           className={`${webData.bg_color}
             navbar navbar-expand-lg navbar-light fixed-top sticky-lg-top`}
-          style={{ backgroundColor: webData.bg_color_code, position: "fixed !important", top: '0' }}
+          style={{ backgroundColor: webData.bg_color_code , position: "fixed !important", top: '0' }}
         >
           <Link className="navbar-brand mb-2" to="/">
             <img
-              className="logodesign"
+              className="fw-bolder text-light logodesign"
               height="35"
-              src="/theme/img/logo.png"
+              src="/img/ctskola-0.png"
               alt="logo"
               width="137"
             />
@@ -64,6 +64,11 @@ export default function Header(props) {
           </button>
           <div id="ca-navbar" className="collapse navbar-collapse manu_header">
             <ul id="nav" className="navbar-nav">
+            <li className="nav-item" style={{ borderTop: "0px!important" }}>
+                <Link className="nav-link theme-color-text" to="/">
+                  Home
+                </Link>
+              </li>
               <li className="nav-item" style={{ borderTop: "0px!important" }}>
                 <Link
                   className=" nav-link theme-color-text"
@@ -77,6 +82,7 @@ export default function Header(props) {
                   P2P
                 </Link>
               </li>
+            
               {/* <li className="nav-item" style={{ borderTop: "0px!important" }}>
                 <Link className="nav-link theme-color-text " to="/stf">
                   STF

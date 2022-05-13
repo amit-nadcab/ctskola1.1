@@ -24,21 +24,21 @@ export default function TradeTab(props) {
     trade_history[coinname].length > 0
   )
     harr = reverseArr(trade_history[coinname]);
-
+  console.log(harr);
   return (
     <div
       className={`${webData.bg_color}` + " mt-2 mt-md-0 mt-lg-0"}
       style={{ backgroundColor: webData.bg_color_code, overflow: "hidden" }}
     >
-      <div style={{ height: "58px" }}>
+      <div style={{ height: "58px", letterSpacing: "2px" }}>
         <div
           className="tab-header  d-flex align-items-center h-50 p-0 px-2"
           style={{ background: "rgba(0,0,0,0.1)" }}
         >
           Trade History
         </div>
-        <div className="row m-0 py-1 pair-border mt-1">
-          <div className="col-4 text-center" style={{ fontSize: "10px" }}>
+        <div className="row m-0 py-1 pair-border mt-1" style={{color: "#04DA9A"}}>
+          <div className="col-4 text-center" style={{ fontSize: "10px"}}>
             PRICE
           </div>
           <div className="col-4 text-center" style={{ fontSize: "10px" }}>

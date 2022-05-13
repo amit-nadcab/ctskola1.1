@@ -24,6 +24,7 @@ export default function Exchange(props) {
   const { isLoggedIn } = useSelector((state) => state.AuthReducer);
   const [loading, setLoading] = React.useState(true);
   if (!props?.match?.params?.id) props.history.replace("/exchange/btc-inr");
+
   useEffect(() => {
     let match = 1;
     const browser_currency_pair = props?.match?.params?.id.split("-");
@@ -82,10 +83,7 @@ export default function Exchange(props) {
         <Preloader />
       ) : (
         <div className="row p-3" style={{ marginTop: "4.5em" }}>
-          <div className="col-12 col-md-3 col-lg-2 p-1">
-            <ExSide {...props} />
-          </div>
-
+          
           <div className="col-12 col-md-7 col-lg-7 p-1">
             <CandleGraph {...props} />
             <div className="row" style={{ margin: "5px -2px" }}>
@@ -97,6 +95,12 @@ export default function Exchange(props) {
               </div>
             </div>
           </div>
+
+          <div className="col-12 col-md-3 col-lg-2 p-1">
+            <ExSide {...props} />
+          </div>
+
+          
           <div className="col-12 col-md-3 col-lg-3 p-1">
             <div>
               <OrdersTab {...props} />

@@ -34,7 +34,7 @@ export default function About() {
               <h4 className="about-top">CTSKOLA</h4>
               <h2 className="about-head">Who Are We</h2>
               <p className="about-paraOne">
-                CtsK  ola has everything you need to buy, sell, and trade crypto.
+                CtsKola has everything you need to buy, sell, and trade crypto.
                 An intuitive experience from the start.
               </p >
               <p className="about-paraTwo">From day one, we designed and built a streamlined crypto exchange for newcomers and experts alike.</p>
@@ -43,7 +43,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className="container-fluid py-5" style={{ background: "#141A28" }}>
+      {/* <div className="container-fluid py-5" style={{ background: "#141A28" }}>
         <div className="container mx-auto">
           <h2 className="text-center py-4">Ctskola Key Features</h2>
           <div className="row d-flex align-center justify-content-center">
@@ -64,7 +64,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <Footer />
     </>
   );

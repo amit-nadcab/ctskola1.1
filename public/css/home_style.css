@@ -306,3 +306,7 @@
   color: #94979F;
   font-size: 20px;
 }
+
+.nav-item nav-link  py-1{
+  color: #04da9a;
+}

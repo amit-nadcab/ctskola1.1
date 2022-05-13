@@ -3,7 +3,7 @@ export const lightTheme = {
   bodydark: "#7c7c7c",
   body: "#FFF",
   text: "#363537",
-  activetext: "#CE9600",
+  activetext: "#04DA9A",
   toggleBorder: "#FFF",
   background: "#363537",
   side_shadow: "0px 1px 23px #d4d4d4",
@@ -36,17 +36,17 @@ export const lightTheme = {
  }
 };
 export const darkTheme = {
-  bodyback: "#5D5D5E",
+  bodyback: "#141A28",
   bodydark: "#9b9b9b",
-  activetext: "#CE9600",
-  body: "#363537",
+  activetext: "#04DA9A",
+  body: "#1E2738",
   text: "#FAFAFA",
   toggleBorder: "#6B8096",
   background: "#999",
   side_shadow: "0px 1px 23px #333333",
   sidebox_shadow: "3px 3px 3px #333333",
   graph_head: {
-    bg: "#343333",
+    bg: "#1E2738",
     border_bottom: "0.1px solid rgb(199 199 199 / 10%)",
   },
   pair_border: {

@@ -118,7 +118,7 @@ export default function OrdersTab(props) {
         ) : null}
         {isLoggedIn ? (
           <>
-            <div className="row m-0 p-0 py-1 theme-color pair-border">
+            <div className="row m-0 p-0 py-1 theme-color pair-border" style={{color: "#04DA9A",letterSpacing: "2px"}}>
               <div className="col-3 text-center" style={{ fontSize: "10px" }}>
                 PAIR
               </div>

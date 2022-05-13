@@ -88,6 +88,7 @@ export default function OrderSystemTab(props) {
                   className={`nav-item nav-link  py-1  ${
                     activeTab === 0 ? "active" : ""
                   }`}
+                  style={{color: "red"}}
                   id="nav-home-tab"
                   data-toggle="tab"
                   role="tab"
@@ -107,6 +108,7 @@ export default function OrderSystemTab(props) {
                   role="tab"
                   aria-controls="nav-profile"
                   aria-selected="false"
+                  
                 >
                   Order Volume
                 </a>
@@ -119,7 +121,7 @@ export default function OrderSystemTab(props) {
         <div
           className="tab-content "
           style={{
-            height: "325px",
+            height: "322px",
             overflow: "hidden",
           }}
         >
@@ -140,13 +142,13 @@ export default function OrderSystemTab(props) {
                       <col width="40%" />
                       <col width="50%" />
                     </colgroup>
-                    <thead>
+                    <thead style={{ letterSpacing: "2px"}}>
                       <tr>
                         <th></th>
-                        <th className="text-right text-uppercase">
+                        <th className="text-center text-uppercase">
                           <h6>Volume</h6>
                         </th>
-                        <th className="text-right text-uppercase">
+                        <th className="text-center text-uppercase" >
                           <h6>Buy Price</h6>
                         </th>
                       </tr>
@@ -192,7 +194,7 @@ export default function OrderSystemTab(props) {
                       <col width="40%" />
                       <col width="10%" />
                     </colgroup>
-                    <thead className="p-0 m-0">
+                    <thead className="p-0 m-0" style={{ letterSpacing: "2px"}}>
                       <tr className="p-0 m-0">
                         <th className="text-uppercase">
                           <h6>Sell Price</h6>
@@ -265,7 +267,7 @@ export default function OrderSystemTab(props) {
                       <col width="40%" />
                       <col width="50%" />
                     </colgroup>
-                    <thead>
+                    <thead style={{ letterSpacing: "2px"}}>
                       <tr>
                         <th></th>
                         <th className="text-right text-uppercase">
@@ -317,7 +319,7 @@ export default function OrderSystemTab(props) {
                       <col width="40%" />
                       <col width="10%" />
                     </colgroup>
-                    <thead>
+                    <thead style={{ letterSpacing: "2px"}}>
                       <tr>
                         <th className="text-uppercase">
                           <h6>Sell Price</h6>

@@ -59,7 +59,8 @@ export default function Banner(props) {
           </div>
           
               <div className="bannerRight col-12 col-md-6 d-flex justify-content-center align-items-center">
-                <img className="bannerImg " src="../img/Pro-Max.png" alt="" />
+              <img className="bannerImg " src="../img/my_mobile.png" alt="" z/>
+                {/* <img className="bannerImg " src="../img/Pro-Max.png" alt="" />
                 <div className = "img-1 position-absolute" data-aos="fade-right">
                 <img src="../img/mobile/Group-22.svg" className="img-fluid" alt="" />
                 </div>
@@ -68,7 +69,7 @@ export default function Banner(props) {
                 </div>
                 <div className="img-3 position-absolute" data-aos="fade-left">
                 <img src="../img/mobile/Group-24.svg" className="img-fluid" alt="" />
-                </div>
+                </div> */}
                 
                 
               </div>
