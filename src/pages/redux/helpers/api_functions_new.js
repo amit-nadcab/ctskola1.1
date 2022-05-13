@@ -131,9 +131,10 @@ export function N_createBuyOffer(
   currency_type,
   compare_currency,
   user_id,
-  type = ""
+  cprice,
+  type = "buy"
 ) {
-  return fetch(`${orderurl}/buy-order`, {
+  return fetch(`${orderurl}/buy-order1`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -147,6 +148,7 @@ export function N_createBuyOffer(
       compare_currency: compare_currency,
       raw_price: raw_price,
       type: type,
+      cprice:cprice
     }),
   })
     .then((res) => res.json())
@@ -159,9 +161,10 @@ export function N_createSellOffer(
   currency_type,
   compare_currency,
   user_id,
-  type = ""
+  cprice,
+  type = "sell"
 ) {
-  return fetch(`${orderurl}/sell-order`, {
+  return fetch(`${orderurl}/sell-order1`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -174,6 +177,28 @@ export function N_createSellOffer(
       volume: volume,
       compare_currency: compare_currency,
       raw_price: raw_price,
+      type: type,
+      cprice:cprice
+    }),
+  })
+    .then((res) => res.json())
+    .catch((e) => e);
+}
+export function N_executeOrder(
+  order_id,
+  user_id,
+  type
+) {
+  return fetch(`${orderurl}/execute-orders`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "cache-control": "no-cache",
+      "Access-Control-Allow-Origin": "*",
+    },
+    body: JSON.stringify({
+      order_id:order_id,
+      user_id: user_id,
       type: type,
     }),
   })

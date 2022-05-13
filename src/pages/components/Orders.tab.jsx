@@ -6,6 +6,7 @@ import "./order.css";
 import Loader from "./Loader";
 import { getUserBalance, getUserOrder } from "../redux/actions/coinDBAction";
 import { N_cancleOrderById } from "../redux/helpers/api_functions_new";
+import { round } from "../redux/helpers/Math";
 export default function OrdersTab(props) {
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState(0);
@@ -43,7 +44,7 @@ export default function OrdersTab(props) {
         <nav style={{ border: "0.2px solid #ffffff11" }}>
           <div className="nav nav-tabs d-flex" id="nav-tab" role="tablist">
             <div
-              className={` nav-item nav-link  p-0  ${
+              className={`  nav-item nav-link  p-0  ${
                 activeTab === 0 ? "active" : ""
               }`}
               id="nav-home-tab"
@@ -58,7 +59,7 @@ export default function OrdersTab(props) {
               Open Orders
             </div>
             <div
-              className={` nav-item nav-link  p-0  ${
+              className={`  nav-item nav-link  p-0   ${
                 activeTab === 1 ? "active" : ""
               }`}
               id="nav-profile-tab"
@@ -67,7 +68,7 @@ export default function OrdersTab(props) {
               role="tab"
               aria-controls="nav-profile"
               aria-selected="false"
-              style={{ flex: 0.5, height: "30px", lineHeight: "30px" }}
+              style={{ flex: 0.5,  height: "30px", lineHeight: "30px" }}
             >
               Completed Orders
             </div>
@@ -76,15 +77,15 @@ export default function OrdersTab(props) {
 
         {!isLoggedIn ? (
           <div
-            className=" tab-content orders"
-            style={{ borderColor: "#19205733" }}
+            className="  tab-content orders"
+            style={{ borderColor: "#19205733",  }}
           >
             <LoginORSignup />
           </div>
         ) : null}
         {activeTab === 0 && isLoggedIn ? (
           <div
-            className="row m-0 p-0 py-1"
+            className="  row m-0 p-0 py-1"
             style={{ borderTop: "0.1px solid rgba(0,0,0,0.1)" }}
           >
             {/* <div
@@ -118,7 +119,7 @@ export default function OrdersTab(props) {
         ) : null}
         {isLoggedIn ? (
           <>
-            <div className="row m-0 p-0 py-1 theme-color pair-border" style={{color: "#04DA9A",letterSpacing: "2px"}}>
+           <div className="row m-0 p-0 py-1 theme-color pair-border" style={{color: "#04DA9A",letterSpacing: "2px"}}>
               <div className="col-3 text-center" style={{ fontSize: "10px" }}>
                 PAIR
               </div>
@@ -376,13 +377,13 @@ function OrderRow(props) {
                 ? props.total_executed
                 : props.total_executed}
             </div>
-            <div>{Number(props?.volume)?.toFixed(4)}</div>
+            <div>{round(props?.volume)}</div>
           </div>
           <div className="col-3 text-center" style={{ fontSize: "10px" }}>
-            {Number(props?.raw_price)?.toFixed(4)}
+            {round(props?.raw_price)}
           </div>
           <div className="col-3 text-center" style={{ fontSize: "10px" }}>
-            {Number(props?.volume * props?.raw_price).toFixed(4)}
+            {round(props?.volume * props?.raw_price)}
           </div>
 
           <div className="orderrow-hover">

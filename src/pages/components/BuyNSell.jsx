@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NotificationManager } from "react-notifications";
 import { GiWallet } from "react-icons/gi";
-import {
-  createBuyOffer,
-  createSellOffer,
-} from "../redux/helpers/api_functions";
+// import {
+//   createBuyOffer,
+//   createSellOffer,
+// } from "../redux/helpers/api_functions";
 import {
   getOrderBook,
   getTradeHist,
@@ -15,6 +15,7 @@ import {
 import {
   N_createBuyOffer,
   N_createSellOffer,
+  N_executeOrder,
   N_get_wallet,
 } from "../redux/helpers/api_functions_new";
 import createSocketClient from "../redux/helpers/socket";
@@ -26,6 +27,7 @@ import {
   SET_SELL_ORDER_BOOK,
   SET_TRADE_HISTORY,
 } from "../redux/constant";
+import { mul, round } from "../redux/helpers/Math";
 // import socket from "../redux/helpers/events";
 
 export default function BuyNSell(props) {
@@ -33,6 +35,7 @@ export default function BuyNSell(props) {
   const [loading, setLoading] = React.useState(false);
   const [activeTab, setActiveTab] = React.useState(props.activeTab || 0);
   const [atPrice, setATPrice] = React.useState(0);
+  const [cprice, setCprice] = React.useState(0);
   const [wallet_balance, setWalletBalance] = React.useState(0);
   const [currency_balance, setCurrencyBalance] = React.useState(0);
   const [amount, setAmount] = React.useState(0);
@@ -199,7 +202,7 @@ export default function BuyNSell(props) {
     // console.log("wallet", coin_wallet, currency_wallet);
     if (price && time == 0) {
       setATPrice(price.toFixed(8));
-      // console.log("price", price);
+      setCprice(price.toFixed(8));
       time = 1;
     }
     setWalletBalance(coin_wallet?.available);
@@ -209,24 +212,25 @@ export default function BuyNSell(props) {
   function getCoinRate(coin, currency) {
     let coins1 = Object.values(coins);
     // console.log("coins: ",coins1);
-    let res = coins1.find((d) => d.symbol === coin.toUpperCase());
+    let res = coins1.find((d) => d.symbol === coin);
     return res?.current_price_inr ? res.current_price_inr : 0;
   }
 
   useEffect(() => {
     getCurrentBuySellTokenBalance();
+    dispatch(
+      getUserOrder(user?.params ? user.params.user_id : user.user_id)
+    );
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setInterval(() => {
-        getCurrentBuySellTokenBalance();
-        dispatch(
-          getUserOrder(user?.params ? user.params.user_id : user.user_id)
-        );
-      }, 10000);
-    }, 10000);
-  }, []);
+  // useEffect(() => {
+  //   // setTimeout(() => {
+  //   //   setInterval(() => {
+  //       getCurrentBuySellTokenBalance();
+      
+  //   //   }, 10000);
+  //   // }, 10000);
+  // }, []);
 
   useEffect(() => {
     // dispatch({
@@ -237,10 +241,13 @@ export default function BuyNSell(props) {
     //     active: 0,
     //   },
     // });
+    const mprice = round(buymarket.marketprice);
+    const mvolume = round(buymarket.marketvolume);
+    const totalinr = mul(mvolume,mprice);
     setActiveTab(buymarket.active);
-    setATPrice(Number(buymarket.marketprice));
-    setAmount(Number(buymarket.marketvolume));
-    setTotal(Number(buymarket.marketvolume) * Number(buymarket.marketprice));
+    setATPrice(mprice);
+    setAmount(mvolume);
+    setTotal(totalinr);
   }, [buymarket]);
 
   useEffect(() => {
@@ -252,9 +259,12 @@ export default function BuyNSell(props) {
     //     active: 0,
     //   },
     // });
-    setATPrice(Number(sellmarket.marketprice));
-    setAmount(Number(sellmarket.marketvolume));
-    setTotal(Number(sellmarket.marketvolume) * Number(sellmarket.marketprice));
+    const mprice = round(sellmarket.marketprice);
+    const mvolume = round(sellmarket.marketvolume);
+    const totalinr = mul(mvolume,mprice);
+    setATPrice(mprice);
+    setAmount(mvolume);
+    setTotal(totalinr);
     setActiveTab(sellmarket.active);
   }, [sellmarket]);
 
@@ -265,17 +275,28 @@ export default function BuyNSell(props) {
       amount,
       c,
       cp,
-      user?.params ? user.params.user_id : user.user_id
+      user?.params ? user.params.user_id : user.user_id,
+      cprice
     )
       .then((d) => {
         if (d.status == 200) {
           // console.log("res buy: ", d);
+          NotificationManager.success(d.message);
           getCurrentBuySellTokenBalance();
           dispatch(
             getUserOrder(user?.params ? user.params.user_id : user.user_id)
           );
+          N_executeOrder(d.result.order_id,  user?.params ? user.params.user_id : user.user_id, d.result.type)
+          .then((d)=>{
+            if(d.status == 200) {
+              getCurrentBuySellTokenBalance();
+              dispatch(
+                getUserOrder(user?.params ? user.params.user_id : user.user_id)
+              );
+            }
 
-          NotificationManager.success(d.message);
+          })
+          
         } else if (d.status == 400) {
           // console.log("res buy: ", d);
           getCurrentBuySellTokenBalance();
@@ -320,16 +341,26 @@ export default function BuyNSell(props) {
       amount,
       c,
       cp,
-      user?.params ? user.params.user_id : user.user_id
+      user?.params ? user.params.user_id : user.user_id,
+      cprice
     )
       .then((d) => {
         if (d.status == 200) {
           // console.log("res sell: ", d);
+          NotificationManager.success(d.message);
           getCurrentBuySellTokenBalance();
           dispatch(
             getUserOrder(user?.params ? user.params.user_id : user.user_id)
           );
-          NotificationManager.success(d.message);
+          N_executeOrder(d.result.order_id,  user?.params ? user.params.user_id : user.user_id, d.result.type)
+          .then((d)=>{
+            if(d.status == 200) {
+              getCurrentBuySellTokenBalance();
+              dispatch(
+                getUserOrder(user?.params ? user.params.user_id : user.user_id)
+              );
+            }
+          })
         } else if (d.status == 400) {
           // console.log("res sell: ", d);
           getCurrentBuySellTokenBalance();
@@ -522,14 +553,14 @@ export default function BuyNSell(props) {
               />
               <div className="input-group-append">
                 <button
-                  className="btn text-success buy-sell-form-bg low-price"
+                  className=" btn text-success buy-sell-form-bg low-price "
                   type="button"
                   style={{
                     borderLeft: "none",
                     fontSize: "13px",
                   }}
                 >
-                  Lowest Price
+                  LOWEST PRICE
                 </button>
               </div>
             </div>
@@ -542,6 +573,7 @@ export default function BuyNSell(props) {
                     // backgroundColor: "white",
                     // color: "#fff",
                     borderColor: "#cacacc",
+                 
                   }}
                 >
                   AMOUNT
@@ -575,7 +607,7 @@ export default function BuyNSell(props) {
             <div className="input-group mb-3">
               <div className="input-group-prepend">
                 <span
-                  className="input-group-text buy-sell-form-bg buy-sell-theme"
+                  className="input-group-text buy-sell-form-bg buy-sell-theme "
                   style={{
                     fontSize: "10px",
                     // backgroundColor: "white",
@@ -583,14 +615,14 @@ export default function BuyNSell(props) {
                     borderColor: "#cacacc",
                   }}
                 >
-                  TOTAL AMT
+                  TOTAL 
                   <br />
                   {coin[1].toUpperCase()}
                 </span>
               </div>
               <input
                 type="text"
-                className="form-control buy-sell-form-bg buy-sell-theme"
+                className="form-control buy-sell-form-bg buy-sell-theme "
                 value={total}
                 onChange={(e) => {
                   setAmount(
@@ -611,7 +643,8 @@ export default function BuyNSell(props) {
                 }}
               />
             </div>
-            <div className="row px-3 mb-1">
+            {isLoggedIn ? (
+            <div className="row px-3 mb-1 ">
               <div
                 className="col-6 pl-1"
                 style={{
@@ -669,9 +702,12 @@ export default function BuyNSell(props) {
                 </div>
               </div>
             </div>
+            ):null}
             <button
               className="btn  text-light btn-block my-2"
-              style={{ background: "#6cb77d" }}
+              style={{ background: "#6cb77d",
+             
+            }}
               disabled={loading}
               onClick={() => {
                 if (isLoggedIn) {
@@ -751,9 +787,8 @@ export default function BuyNSell(props) {
                   className="input-group-text buy-sell-form-bg buy-sell-theme"
                   style={{
                     fontSize: "10px",
-                    // backgroundColor: "white",
-                    // color: "#fff",
                     borderColor: "#cacacc",
+
                   }}
                 >
                   AT PRICE
@@ -763,7 +798,7 @@ export default function BuyNSell(props) {
               </div>
               <input
                 type="text"
-                className="form-control buy-sell-form-bg buy-sell-theme"
+                className="form-control buy-sell-form-bg buy-sell-them "
                 value={atPrice}
                 onChange={(e) => {
                   setATPrice(
@@ -777,9 +812,7 @@ export default function BuyNSell(props) {
                       .replace(/(\..*?)\..*/g, "$1") * amount
                   );
                 }}
-                style={{
-                  // backgroundColor: "#162538a6",
-                  // color: "#fff",
+                style={{ 
                   borderColor: "#cacacc",
                 }}
               />
@@ -788,13 +821,14 @@ export default function BuyNSell(props) {
                   className="btn text-danger buy-sell-form-bg high-price"
                   type="button"
                   style={{
-                    // background: "white",
+                 
                     borderColor: "#cacacc",
                     borderLeft: "none",
                     fontSize: "13px",
+                    
                   }}
                 >
-                  Highest Price
+                  HIGHEST PRICE
                 </button>
               </div>
             </div>
@@ -849,7 +883,7 @@ export default function BuyNSell(props) {
                     borderColor: "#cacacc",
                   }}
                 >
-                  TOTAL AMT
+                  TOTAL 
                   <br />
                   {coin[1].toUpperCase()}
                 </span>
@@ -877,13 +911,15 @@ export default function BuyNSell(props) {
                 }}
               />
             </div>
-            <div className="row px-3 mb-1">
+            {isLoggedIn ? (
+            <div className="row px-3     mb-1">
               <div
                 className="col-6 pl-1"
                 style={{
                   display: "flex",
                   flexDirection: "row",
-                  alignItems: "center",
+                  alignItems: "center"
+               
                 }}
               >
                 <span className="mx-2" title="wallet">
@@ -935,7 +971,7 @@ export default function BuyNSell(props) {
                 </span>
               </div>
             </div>
-
+            ):null}
             <button
               className="btn btn-block text-light my-2"
               style={{ background: "#fb6e7b" }}

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "./components/Loader";
+import { round } from "./redux/helpers/Math";
 import {
   BUY_MARKET_PRICE,
   SELL_MARKET_PRICE,
   SET_ORDER_BOOK,
 } from "./redux/constant";
-export default function OrderSystemTab(props) {
-  const [activeTab, setActiveTab] = React.useState(0);
+export default function   OrderSystemTab(props) {
+  const [activeTab, setActiveTab] = useState(0);
   const [sarr, setsarr] = useState([]);
   const [barr, setbarr] = useState([]);
   const { buy_order_book, sell_order_book, order_book_loading } = useSelector(
@@ -21,6 +22,13 @@ export default function OrderSystemTab(props) {
   function reverseArr(input) {
     let ret = new Array();
     for (var i = input.length - 1; i >= 0; i--) {
+      let updatearr ={
+        compare_currency:input[i].compare_currency,
+        currency_type:input[i].currency_type,
+        raw_price:round(input[i].raw_price),
+        volume:round(input[i].volume)
+      }
+      if(round(updatearr.volume)>0)
       ret.push(input[i]);
     }
     return ret;
@@ -81,14 +89,13 @@ export default function OrderSystemTab(props) {
               background: "rgba(0,0,0,0.1)",
             }}
           >
-            <div className="d-flex align-items-center px-3">Order Book</div>
+            <div className="d-flex align-items-center px-3">ORDER BOOK</div>
             <nav>
               <div className="nav nav-tabs d-flex" id="nav-tab" role="tablist">
                 <a
                   className={`nav-item nav-link  py-1  ${
                     activeTab === 0 ? "active" : ""
                   }`}
-                  style={{color: "red"}}
                   id="nav-home-tab"
                   data-toggle="tab"
                   role="tab"
@@ -104,11 +111,12 @@ export default function OrderSystemTab(props) {
                   }`}
                   id="nav-profile-tab"
                   data-toggle="tab"
-                  onClick={() => setActiveTab(1)}
+                  onClick={() => 
+                    setActiveTab(1)
+                  }
                   role="tab"
                   aria-controls="nav-profile"
                   aria-selected="false"
-                  
                 >
                   Order Volume
                 </a>
@@ -142,18 +150,18 @@ export default function OrderSystemTab(props) {
                       <col width="40%" />
                       <col width="50%" />
                     </colgroup>
-                    <thead style={{ letterSpacing: "2px"}}>
+                    <thead>
                       <tr>
                         <th></th>
-                        <th className="text-center text-uppercase">
+                        <th className="text-right text-uppercase">
                           <h6>Volume</h6>
                         </th>
-                        <th className="text-center text-uppercase" >
+                        <th className="text-right text-uppercase">
                           <h6>Buy Price</h6>
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="buy">
+                    <tbody className="buy" style={{fontFamily:"monospace"}}>
                       {buy_order_book
                         ? barr?.map((d, index) => (
                             <tr
@@ -172,8 +180,8 @@ export default function OrderSystemTab(props) {
                               <td className="status-dot-cell">
                                 <div></div>
                               </td>
-                              <td>{d.volume}</td>
-                              <td>{Number(d.raw_price).toFixed(9)}</td>
+                              <td className="text-success">{round(d.volume)}</td>
+                              <td>{round(d.raw_price)}</td>
                               <div
                                 className="filler"
                                 style={{
@@ -194,7 +202,7 @@ export default function OrderSystemTab(props) {
                       <col width="40%" />
                       <col width="10%" />
                     </colgroup>
-                    <thead className="p-0 m-0" style={{ letterSpacing: "2px"}}>
+                    <thead className="p-0 m-0">
                       <tr className="p-0 m-0">
                         <th className="text-uppercase">
                           <h6>Sell Price</h6>
@@ -205,7 +213,7 @@ export default function OrderSystemTab(props) {
                         <th></th>
                       </tr>
                     </thead>
-                    <tbody className="sell">
+                    <tbody className="sell " style={{fontFamily:"monospace"}}>
                       {sarr
                         ? sarr.map((d, index) => (
                             <tr
@@ -221,8 +229,8 @@ export default function OrderSystemTab(props) {
                                 });
                               }}
                             >
-                              <td>{Number(d.raw_price).toFixed(9)}</td>
-                              <td>{d.volume}</td>
+                              <td className="text-danger" >{round(d.raw_price)}</td>
+                              <td>{round(d.volume)}</td>
                               <td className="status-dot-cell">
                                 <div></div>
                               </td>
@@ -254,10 +262,10 @@ export default function OrderSystemTab(props) {
             className={`tab-pane fade ${activeTab == 1 ? "active show" : ""}`}
           >
             <div className="order-book-container">
-              {order_book_loading ? (
+            {order_book_loading ? (
                 <Loader />
               ) : buy_order_book?.length != 0 || sell_order_book.length != 0 ? (
-                <>
+                 <>
                   <table
                     className="order-book-table order-book-table--open order-book-table--left"
                     style={{ height: "fit-content" }}
@@ -267,7 +275,7 @@ export default function OrderSystemTab(props) {
                       <col width="40%" />
                       <col width="50%" />
                     </colgroup>
-                    <thead style={{ letterSpacing: "2px"}}>
+                    <thead>
                       <tr>
                         <th></th>
                         <th className="text-right text-uppercase">
@@ -297,8 +305,8 @@ export default function OrderSystemTab(props) {
                               <td className="status-dot-cell">
                                 <div></div>
                               </td>
-                              <td>{d.volume}</td>
-                              <td>{Number(d.raw_price).toFixed(9)}</td>
+                              <td className="text-success">{round(d.volume)}</td>
+                              <td>{round(d._id)}</td>
                               <div
                                 className="filler"
                                 style={{
@@ -319,7 +327,7 @@ export default function OrderSystemTab(props) {
                       <col width="40%" />
                       <col width="10%" />
                     </colgroup>
-                    <thead style={{ letterSpacing: "2px"}}>
+                    <thead >
                       <tr>
                         <th className="text-uppercase">
                           <h6>Sell Price</h6>
@@ -333,7 +341,7 @@ export default function OrderSystemTab(props) {
                     <tbody className="sell">
                       {sell_order_book
                         ? sarr?.map((d, index) => (
-                            <tr
+                            <tr 
                               key={index}
                               onClick={() => {
                                 dispatch({
@@ -346,8 +354,8 @@ export default function OrderSystemTab(props) {
                                 });
                               }}
                             >
-                              <td>{Number(d.raw_price).toFixed(9)}</td>
-                              <td>{d.volume}</td>
+                              <td className="text-danger">{round(d._id)}</td>
+                              <td>{round(d.volume)}</td>
                               <td className="status-dot-cell">
                                 <div></div>
                               </td>
