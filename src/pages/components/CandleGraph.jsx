@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./chart.css";
 import { toggleFav } from "../redux/actions/coinDBAction";
 import { TVChartContainer } from "./CandleChart";
+import { N_getVHL } from "../redux/helpers/api_functions_new";
 
 export default function CandleGraph(props) {
   const dispatch = useDispatch();
@@ -13,6 +14,11 @@ export default function CandleGraph(props) {
   );
   const [isFav, setIsFav] = React.useState(false);
   const [current_price, currentPrice] = React.useState(0);
+  const [volume, setVolume] = useState(0);
+  const [high, setHigh] = useState(0);
+  const [low, setLow] = useState(0);
+  const [close, setClose] = useState(0);
+  const [per, setPercet] = useState(0);
   const [newgetchart, NewGetChart] = React.useState(false);
   const { user } = useSelector((state) => state.AuthReducer);
   const { isLoggedIn } = useSelector(
@@ -38,7 +44,18 @@ export default function CandleGraph(props) {
     setIsFav(match ? true : false);
   }, [...user_fav_pairing, ...coin]);
 
-  
+  useEffect (()=>{
+    N_getVHL(props.match.params.id)
+    .then((data)=>{
+      if(data.status==200){
+        setVolume(data.vhl.todays_v);
+        setHigh(data.vhl.todays_h);
+        setLow(data.vhl.todays_l);
+        setClose(data.vhl.todays_c);
+        setPercet(data.vhl.todays_pc)
+      }
+    })
+  }, [props.match.params.id]);
   function getChart(symbol, symbol2) {
     prevSymbol(symbol);
     // console.log("getChart1: ", symbol, symbol2);
@@ -84,7 +101,7 @@ export default function CandleGraph(props) {
                 color="#1C1B21"
                 className="sc-bwzfXH jaArUU"
               >
-                {current_price ? current_price.toFixed(9) : ''}
+                {current_price}
               </span>
               <span
                 onClick={() => {
@@ -115,7 +132,7 @@ export default function CandleGraph(props) {
               Volume
             </span>
             <span color="#1C1B21" className="sc-bwzfXH izvMda">
-              {data?.volume_24h}
+              {volume}
             </span>
           </div>
           <div className="sc-bdVaJa bmTiOt">
@@ -123,7 +140,7 @@ export default function CandleGraph(props) {
               High
             </span>
             <span color="#1C1B21" className="text-success sc-bwzfXH izvMda">
-            <span class="high_24h">{data?.high_24h}</span>
+            <span class="high_24h">{high}</span>
               <i className="fa fa-caret-up align-top"></i>
             </span>
           </div>
@@ -132,10 +149,18 @@ export default function CandleGraph(props) {
               Low
             </span>
             <span color="#1C1B21" className="text-danger sc-bwzfXH izvMda">
-              <span class="low_24h">{data?.low_24h}</span>
+              <span class="low_24h">{low}</span>
               <i className="fa fa-caret-down align-top"></i>
             </span>
           </div>
+          {/* <div className="sc-bdVaJa bmTiOt">
+            <span color="#929292" className="sc-bwzfXH yjNnZ font-weight-bold">
+              CLOSE
+            </span>
+            <span color="#1C1B21" className=" sc-bwzfXH izvMda">
+              {close}
+            </span>
+          </div> */}
           <div className="sc-bdVaJa bmTiOt">
             <span color="#929292" className="sc-bwzfXH yjNnZ font-weight-bold">
               AVG

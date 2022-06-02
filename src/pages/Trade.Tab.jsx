@@ -24,7 +24,7 @@ export default function TradeTab(props) {
     trade_history[coinname].length > 0
   )
     harr = reverseArr(trade_history[coinname]);
-  console.log(harr);
+  // console.log(harr);
   return (
     <div
       className={`${webData.bg_color}` + " mt-2 mt-md-0 mt-lg-0"}

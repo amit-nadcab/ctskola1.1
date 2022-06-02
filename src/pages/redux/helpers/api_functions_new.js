@@ -124,7 +124,20 @@ export function N_updatePassword(user_id, password, confirm_password) {
     .then((d) => d.json())
     .catch((e) => e);
 }
-
+export function N_getVHL(symbol
+  ) {
+    return fetch(`${orderurl}/chart/getVHL`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "cache-control": "no-cache",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({symbol:symbol}),
+    })
+      .then((res) => res.json())
+      .catch((e) => e);
+  }
 export function N_createBuyOffer(
   raw_price,
   volume,
