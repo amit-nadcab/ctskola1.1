@@ -5,7 +5,7 @@ import axios from "axios";
 
 // const url = "https://api.ctskola.com/api";
 // const url = "http://localhost:5000/api";
-const url = "https://api.ctskola.com/api";
+const url = "https://ctapi.live/api";
 export const WebsiteURL =  'https://ctskola.com' ;
 const orderurl = "https://order.ctskola.com/api";
 // const url = "https://api.kingvrx.com/api";
