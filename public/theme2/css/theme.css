@@ -5,13 +5,13 @@
   background-color:  rgb(25,32,87);
 }
 .btn-theme-color{
-  color: rgb(33, 40, 51)!important;
-  /* background-image: linear-gradient(rgb(248, 209, 47) 0%, rgb(240, 185, 11) 100%);
-  background-image: linear-gradient(rgb(255, 226, 81) 0%, rgb(237, 196, 35) 100%) */
+  color: white!important;
+  background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(98, 152, 255), rgb(5, 21, 38)) repeat scroll 0% 0%;
+  background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(98, 152, 255), rgb(5, 21, 38)) repeat scroll 0% 0%;
 }
 
 .nav-tabs .nav-item.show .nav-link, .btn.active,.coinsfather-theme-color .theme-color-text .active,.coinsfather-theme-color .theme-color-text, .main-profile-pro h4{
-  color: #04DA9A!important;
+  color: #000000!important;
 }
 .sing-up-button > a:not(.btn-theme-color) {
   color: #fff;
@@ -34,16 +34,16 @@ width: 80px!important;
   border-radius: 10px;
 }
 .logodesign{
-  border-radius: 10px;
-  padding: 5px 5px;
- /*  background-color: rgb(124, 124, 124); */
+  /*border-radius: 10px;*/
+  /*padding: 10px;*/
+  /*background-color: rgb(124, 124, 124);*/
 }
 .sanfont{
   font-family: "Open Sans", Lato, sans-serif;
 }
 .gift_icon{
   font-size: 75px!important;
-  color: #04DA9A;
+  color: #CE9600;
 }
 .h800,.TVChartContainer{
   height: 385px;
