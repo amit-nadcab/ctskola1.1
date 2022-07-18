@@ -576,24 +576,24 @@ export default function Wallet() {
                                         {parseInt(item.status) === 1 ||
                                         (parseInt(item.status) === 3 &&
                                           item.symbol == "INR") ? (
-                                            <a href="https://login.ctpay.cloud" target="_blank" className="wh btn btn-theme-color mr-2">
-                                              Deposit
-                                            </a>
-                                          // <button
-                                          //   className="btn btn-theme-color mr-2"
-                                          //   id="deposit"
-                                          //   data-toggle="collapse"
-                                          //   data-target={"#inr_" + item.symbol}
-                                          //   aria-expanded="false"
-                                          //   onClick={(e) =>
-                                          //     changeCollapse(
-                                          //       e,
-                                          //       "#inr_" + item.symbol
-                                          //     )
-                                          //   }
-                                          // >
-                                          //   Deposit
-                                          // </button>
+                                            // <a href="https://login.ctpay.cloud" target="_blank" className="wh btn btn-theme-color mr-2">
+                                            //   Deposit
+                                            // </a>
+                                          <button
+                                            className="btn btn-theme-color mr-2"
+                                            id="deposit"
+                                            data-toggle="collapse"
+                                            data-target={"#inr_" + item.symbol}
+                                            aria-expanded="false"
+                                            onClick={(e) =>
+                                              changeCollapse(
+                                                e,
+                                                "#inr_" + item.symbol
+                                              )
+                                            }
+                                          >
+                                            Deposit
+                                          </button>
                                         ) : null}
 
                                         {parseInt(item.status) === 2 ||
@@ -945,7 +945,7 @@ export default function Wallet() {
                                                   }}
                                                 >
                                                   UpLoad
-                                                </a>
+                                                </a>                                            
                                                 <div
                                                   className="spinner-border text-primary"
                                                   style={{ display: "none" }}

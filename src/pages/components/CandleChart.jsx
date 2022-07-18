@@ -32,7 +32,8 @@ function widgetOptionsFunc(widgtProp){
 		autosize: widgtProp.autosize,
 		studies_overrides: widgtProp.studiesOverrides,
 		favorites: {
-			intervals: ["1H", "2H", "4H", "6H", "12H", "1D","3D","2D","1W"],
+			// intervals: ["1H", "2H", "4H", "6H", "12H", "1D","3D","2D","1W"],
+			intervals: ["4H", "6H", "12H", "1D","3D","2D","1W"],
 			chartTypes: ["ha"]
 		},
 		header_compare:false
@@ -50,7 +51,7 @@ export class TVChartContainer extends React.PureComponent  {
 	}
 	
 	static defaultProps = {
-		interval: '1H',
+		interval: '4H',
 		containerId: 'tv_chart_container',
 		// datafeedUrl: 'https://demo_feed.tradingview.com',
 		datafeedUrl: 'https://order.ctskola.com/api/chart',//https://bitflash.io/api/chart
